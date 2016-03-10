@@ -6,6 +6,7 @@
     <link type="text/css" rel="stylesheet" href="/static/css/blog.css">
     <link href='https://fonts.googleapis.com/css?family=UnifrakturCook:700' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="fb:appid" content="182979028748436">
   </head>
   <body>
     <script>
@@ -54,6 +55,13 @@
               </span>
             </div>
             <div class="post-body">{{.RenderedBody}}</div>
+            <div class="share-bar">
+              <button class="fbshare" type="button" name="button"
+                data-url="http://thebipedalapproach/blog/post/{{.PostID}}"
+                data-title="{{.Title}}">
+                Share
+              </button>
+            </div>
             <div class="post-footer">
               {{if $.IsAdmin}}
               <a href="/blog/post/edit/{{.PostID}}">Edit</a>
@@ -70,5 +78,6 @@
     </div>
     <script src="static/scripts/post.js"></script>
     <script src="static/scripts/mode.js"></script>
+    <script src="static/scripts/blog.js"></script>
   </body>
 </html>

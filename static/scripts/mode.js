@@ -3,7 +3,6 @@ document.getElementById("easy").addEventListener("click", function(event) {
   event.preventDefault();
   if (onHardMode) {
     stopHardMode();
-    // alert("changed mode to easy");
   }
 }, false);
 
@@ -11,7 +10,6 @@ document.getElementById("hard").addEventListener("click", function(event) {
   event.preventDefault();
   if (!onHardMode) {
     startHardMode();
-    // alert("changed mode to hard");
   }
 }, false);
 
