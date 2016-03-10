@@ -1,0 +1,21 @@
+@import "_common";
+.media-list {
+  width: 100%;
+}
+form {
+  display: inline;
+}
+.media-upload {
+  text-align: center;
+}
+.media-item {
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  img {
+    max-width: 100%;
+  }
+}

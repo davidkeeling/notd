@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="easymode">
+  <head>
+    <link rel="icon" href="/static/images/favicon.jpg?v=001">
+    <title>The Bipedal Approach</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/blog.css">
+    <link href='https://fonts.googleapis.com/css?family=UnifrakturCook:700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '182979028748436',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <header>
+      <a href="/">Home</a>
+      <a href="/blog" class="link-inactive">Blog</a>
+      <a href="/login">Login/Logout</a>
+      {{if .IsAdmin}}
+      <a href="/blog/post">Post to blog</a>
+      <a href="/media">Manage media</a>
+      {{end}}
+      <a id="easy" href="#">Easy mode</a>
+      <a id="hard" href="#">Hard mode</a>
+    </header>
+    <div class="content">
+      <div id="side-bar">
+        <div class="content">
+        </div>
+      </div>
+      <div id="posts">
+        {{range .BlogEntries}}
+        <div class="post">
+          <div class="post-content">
+            <div class="post-header">
+              <a class="title" href="/blog/post/{{.PostID}}">{{.Title}}</a>
+              <span class="divider" style="display:inline-block; width:30px;"></span>
+              <span class="post-info">
+                <span class="user">Posted by {{.AuthorLink}}</span>
+                <span class="date"> on {{.Created.Format "1/2/06"}}</span>
+              </span>
+            </div>
+            <div class="post-body">{{.RenderedBody}}</div>
+            <div class="post-footer">
+              {{if $.IsAdmin}}
+              <a href="/blog/post/edit/{{.PostID}}">Edit</a>
+              <form id="delete-{{.PostID}}" action="/blog/post/delete/{{.PostID}}" method="POST">
+                <input class="delete-button" type="submit" value="Delete" name="submit">
+              </form>
+              <script>document.getElementById("delete-{{.PostID}}").addEventListener("submit", function(event){event.stopPropagation(); event.preventDefault(); if (confirm("Are you sure?")) post(this.action);}, false);</script>
+              {{end}}
+            </div>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+    <script src="static/scripts/post.js"></script>
+    <script src="static/scripts/mode.js"></script>
+  </body>
+</html>

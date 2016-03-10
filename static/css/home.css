@@ -1,0 +1,133 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: white;
+  font-size: 20px;
+  word-wrap: break-word; }
+
+header {
+  width: 100%;
+  padding-bottom: 15%;
+  padding-left: .25em;
+  padding-right: .25em;
+  box-sizing: border-box;
+  background-image: url(http://thebipedalapproach.com/wp-content/uploads/2013/09/cropped-soldier-rainbow11.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  line-height: 1.5em; }
+  header a {
+    color: white;
+    padding: 0 .5em; }
+
+h1, h2, h3 {
+  font-family: 'UnifrakturCook', fantasy, serif; }
+
+h1 {
+  text-align: center; }
+
+.delete-button {
+  padding: 0;
+  background: none;
+  display: inline;
+  border: none;
+  color: red;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline; }
+
+.link-inactive {
+  cursor: default;
+  text-decoration: none; }
+
+html.easymode #easy {
+  cursor: default;
+  text-decoration: none; }
+html.easymode .shadow {
+  display: none; }
+
+p, a, h1, h2, h3, h4, h5, h6, li {
+  transition: left .5s, top .5s; }
+
+html.hardmode {
+  position: relative;
+  min-width: 100%;
+  min-height: 100%; }
+  html.hardmode p, html.hardmode a, html.hardmode h1, html.hardmode h2, html.hardmode h3, html.hardmode h4, html.hardmode h5, html.hardmode h6, html.hardmode li {
+    position: absolute;
+    z-index: 1; }
+  html.hardmode #hard {
+    cursor: default;
+    text-decoration: none; }
+  html.hardmode .shadow {
+    position: static;
+    display: inline-block;
+    background-color: transparent; }
+
+#hard, #easy {
+  display: none; }
+
+a[href='/login'] {
+  display: none; }
+
+@media screen and (min-width: 560px) {
+  #hard, #easy {
+    display: inline-block; } }
+.outer {
+  background-color: #f6fcfa; }
+
+.header {
+  width: 100%;
+  position: relative; }
+  .header .background-image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 768px; }
+  .header .title {
+    color: #408d6b;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 48px;
+    font-weight: 900;
+    text-align: center; }
+
+.content {
+  background: linear-gradient(180deg, #f6fcfa, gray);
+  min-height: 1024px; }
+
+.tapestry {
+  position: relative;
+  background-image: url(/static/images/tapestry.jpg);
+  background-size: cover;
+  width: 2048px;
+  height: 906px;
+  margin: 0 auto; }
+
+.bandmate {
+  position: absolute;
+  transition: left .5s, top .5s; }
+  .bandmate img {
+    position: relative;
+    z-index: 150; }
+
+.bandmate-shadow {
+  position: absolute;
+  z-index: 100;
+  background-color: white; }
+  .bandmate-shadow.grant {
+    width: 142px;
+    height: 340px; }
+  .bandmate-shadow.ben {
+    width: 156px;
+    height: 339px; }
+  .bandmate-shadow.jack {
+    width: 193px;
+    height: 370px; }
+  .bandmate-shadow.taylor {
+    width: 152px;
+    height: 335px; }
+  .bandmate-shadow.dave {
+    width: 121px;
+    height: 325px; }
+
+/*# sourceMappingURL=home.css.map */

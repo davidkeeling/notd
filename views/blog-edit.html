@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="/static/images/favicon.jpg?v=001">
+    <title>The Bipedal Approach</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/blog.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/blog/post">New blog post</a>
+      <a href="/media">Manage media</a>
+    </header>
+    <div class="blog-form">
+      <h1>Edit Blog Post</h1>
+      <div class="blog-post">
+        <form action="/blog/post/update/{{.Post.PostID}}" method="POST">
+          <label for="title">Title</label>
+          <br>
+          <input type="text" name="title" maxlength="150" value={{.Post.Title}}>
+          <br><br>
+          <label for="body">Body</label>
+          <br>
+          <textarea name="body" rows="16" cols="60">{{.Post.Body}}</textarea>
+          <br><br>
+          <label for="featuredImage">Featured image</label>
+          <br>
+          <span id="showFeaturedImages">Select</span>
+          <br>
+          <div id="featuredImageWrapper">
+            <div id="featuredImageBlanket"></div>
+            <div id="featuredImageContainer">
+              {{range .BlogImages}}
+              <img class="featuredImage" data-media-id="{{.BlogImageID}}" src="/media/{{.BlobKey}}" alt="Featured image">
+              {{end}}
+            </div>
+          </div>
+          <img id="featuredImagePreview" src="/media/{{.Post.FeaturedImageBlobKey}}" alt="Currently selected image">
+          <input id="featuredImage-input" type="hidden" name="featuredImage" value="{{.Post.FeaturedImageID}}">
+          <br><br>
+          <label for="created">Created</label>
+          <br>
+          <input id="created-input" type="text" name="created">
+          <br><br>
+          <input type="hidden" name="postID" value="{{.Post.PostID}}">
+          <input type="submit" value="Save">
+        </form>
+      </div>
+    </div>
+    <script src="/static/scripts/featured-images.js"></script>
+  </body>
+</html>

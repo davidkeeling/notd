@@ -1,0 +1,92 @@
+@import "_common";
+.outer {
+  background-color: #f6fcfa;
+}
+.header {
+  width: 100%;
+  position: relative;
+  .background-image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 768px;
+  }
+  .title {
+    color: #408d6b;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 48px;
+    font-weight: 900;
+    text-align: center;
+  }
+}
+.content {
+  background: linear-gradient(180deg, #f6fcfa, gray);
+  min-height: 1024px;
+}
+.tapestry {
+  position: relative;
+  background-image: url(/static/images/tapestry.jpg);
+  background-size: cover;
+  width: 2048px;
+  height: 906px;
+  margin: 0 auto;
+  // width: 1024px;
+  // height: 453px;
+}
+html.hardmode {
+}
+.bandmate {
+  position: absolute;
+  transition: left .5s, top .5s;
+  img {
+    position: relative;
+    z-index: 150;
+  }
+  &.dave {
+
+  }
+  &.taylor {
+
+  }
+  &.jack {
+
+  }
+  &.ben {
+
+  }
+  &.grant {
+
+  }
+}
+
+.bandmate-shadow {
+  position: absolute;
+  // width: 100%;
+  // height: 100%;
+  z-index: 100;
+  background-color: white;
+  // top: 0;
+  // left: 0;
+  &.grant {
+    // left: 1200px;
+    // top: 282px;
+    width: 142px;
+    height: 340px;
+  }
+  &.ben {
+    width: 156px;
+    height: 339px;
+  }
+  &.jack {
+    width: 193px;
+    height: 370px;
+  }
+  &.taylor {
+    width: 152px;
+    height: 335px;
+  }
+  &.dave {
+    width: 121px;
+    height: 325px;
+  }
+}

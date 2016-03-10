@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="easymode">
+  <head>
+    <link rel="icon" href="/static/images/favicon.jpg?v=001">
+    <title>The Bipedal Approach</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/blog.css">
+    <link href='https://fonts.googleapis.com/css?family=UnifrakturCook:700' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="{{.Post.Title}}" />
+    <meta property="og:type" content="website" />
+    <meta name="fb:appid" content="182979028748436">
+    <meta property="og:url" content="http://www.thebipedalapproach.com/blog/post/{{.Post.PostID}}" />
+    <meta property="og:image" content="http://www.thebipedalapproach.com/media/{{.Post.FeaturedImageBlobKey}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '182979028748436',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <header>
+      <a href="/">Home</a>
+      <a href="/login">Login/Logout</a>
+      <a href="/blog">Blog</a>
+      {{if .User}}
+      {{if .User.IsAdmin}}
+      <a href="/blog/post">Post to blog</a>
+      <a href="/media">Manage media</a>
+      {{end}}
+      {{end}}
+      <a id="easy" href="#">Easy mode</a>
+      <a id="hard" href="#">Hard mode</a>
+    </header>
+    <div class="content">
+      <div class="post">
+        <div class="post-header">
+          <span class="title">{{.Post.Title}}</span>
+          <span class="divider" style="display:inline-block; width:30px;"></span>
+          <span class="post-info">
+            <span class="user">Posted by {{.Post.AuthorLink}}</span>
+            <span class="date"> on {{.Post.Created.Format "1/2/06"}}</span>
+          </span>
+        </div>
+        <div class="post-body">{{.Post.RenderedBody}}</div>
+        <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+        <div class="post-footer">
+          {{if .User}}
+          {{if .User.IsAdmin}}
+          <a href="/blog/post/edit/{{.Post.PostID}}">Edit</a>
+          <form id="delete-{{.Post.PostID}}" action="/blog/post/delete/{{.Post.PostID}}" method="POST">
+            <input class="delete-button" type="submit" value="Delete" name="submit">
+          </form>
+          <script>document.getElementById("delete-{{.Post.PostID}}").addEventListener("submit", function(event){event.stopPropagation(); event.preventDefault(); if (confirm("Are you sure?")) post(this.action);}, false);</script>
+          {{end}}
+          {{end}}
+        </div>
+      </div>
+    </div>
+    <script src="/static/scripts/post.js"></script>
+    <script src="/static/scripts/mode.js"></script>
+  </body>
+</html>

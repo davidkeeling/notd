@@ -1,0 +1,95 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: white;
+  font-size: 20px;
+  word-wrap: break-word; }
+
+header {
+  width: 100%;
+  padding-bottom: 15%;
+  padding-left: .25em;
+  padding-right: .25em;
+  box-sizing: border-box;
+  background-image: url(http://thebipedalapproach.com/wp-content/uploads/2013/09/cropped-soldier-rainbow11.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  line-height: 1.5em; }
+  header a {
+    color: white;
+    padding: 0 .5em; }
+
+h1, h2, h3 {
+  font-family: 'UnifrakturCook', fantasy, serif; }
+
+h1 {
+  text-align: center; }
+
+.delete-button {
+  padding: 0;
+  background: none;
+  display: inline;
+  border: none;
+  color: red;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline; }
+
+.link-inactive {
+  cursor: default;
+  text-decoration: none; }
+
+html.easymode #easy {
+  cursor: default;
+  text-decoration: none; }
+html.easymode .shadow {
+  display: none; }
+
+p, a, h1, h2, h3, h4, h5, h6, li {
+  transition: left .5s, top .5s; }
+
+html.hardmode {
+  position: relative;
+  min-width: 100%;
+  min-height: 100%; }
+  html.hardmode p, html.hardmode a, html.hardmode h1, html.hardmode h2, html.hardmode h3, html.hardmode h4, html.hardmode h5, html.hardmode h6, html.hardmode li {
+    position: absolute;
+    z-index: 1; }
+  html.hardmode #hard {
+    cursor: default;
+    text-decoration: none; }
+  html.hardmode .shadow {
+    position: static;
+    display: inline-block;
+    background-color: transparent; }
+
+#hard, #easy {
+  display: none; }
+
+a[href='/login'] {
+  display: none; }
+
+@media screen and (min-width: 560px) {
+  #hard, #easy {
+    display: inline-block; } }
+.media-list {
+  width: 100%; }
+
+form {
+  display: inline; }
+
+.media-upload {
+  text-align: center; }
+
+.media-item {
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 5px; }
+  .media-item img {
+    max-width: 100%; }
+
+/*# sourceMappingURL=media.css.map */

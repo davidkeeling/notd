@@ -1,0 +1,203 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: white;
+  font-size: 20px;
+  word-wrap: break-word; }
+
+header {
+  width: 100%;
+  padding-bottom: 15%;
+  padding-left: .25em;
+  padding-right: .25em;
+  box-sizing: border-box;
+  background-image: url(http://thebipedalapproach.com/wp-content/uploads/2013/09/cropped-soldier-rainbow11.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  line-height: 1.5em; }
+  header a {
+    color: white;
+    padding: 0 .5em; }
+
+h1, h2, h3 {
+  font-family: 'UnifrakturCook', fantasy, serif; }
+
+h1 {
+  text-align: center; }
+
+.delete-button {
+  padding: 0;
+  background: none;
+  display: inline;
+  border: none;
+  color: red;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline; }
+
+.link-inactive {
+  cursor: default;
+  text-decoration: none; }
+
+html.easymode #easy {
+  cursor: default;
+  text-decoration: none; }
+html.easymode .shadow {
+  display: none; }
+
+p, a, h1, h2, h3, h4, h5, h6, li {
+  transition: left .5s, top .5s; }
+
+html.hardmode {
+  position: relative;
+  min-width: 100%;
+  min-height: 100%; }
+  html.hardmode p, html.hardmode a, html.hardmode h1, html.hardmode h2, html.hardmode h3, html.hardmode h4, html.hardmode h5, html.hardmode h6, html.hardmode li {
+    position: absolute;
+    z-index: 1; }
+  html.hardmode #hard {
+    cursor: default;
+    text-decoration: none; }
+  html.hardmode .shadow {
+    position: static;
+    display: inline-block;
+    background-color: transparent; }
+
+#hard, #easy {
+  display: none; }
+
+a[href='/login'] {
+  display: none; }
+
+@media screen and (min-width: 560px) {
+  #hard, #easy {
+    display: inline-block; } }
+#featuredImageWrapper {
+  display: none;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  #featuredImageWrapper #featuredImageBlanket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; }
+  #featuredImageWrapper #featuredImageContainer {
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    padding: 2em;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%; }
+
+#showFeaturedImages {
+  cursor: pointer;
+  text-decoration: underline; }
+
+.featuredImage {
+  max-width: 100%;
+  max-height: 160px; }
+
+#featuredImagePreview {
+  max-width: 100%; }
+
+.content #side-bar {
+  display: none; }
+@media screen and (min-width: 700px) {
+  .content {
+    text-align: center; }
+    .content #posts {
+      display: inline-block;
+      max-width: 66%;
+      box-sizing: border-box;
+      padding: .5em; }
+    .content #side-bar {
+      display: inline-block;
+      box-sizing: border-box;
+      max-width: 33%;
+      vertical-align: top;
+      text-align: center; }
+      .content #side-bar .content {
+        display: inline-block;
+        text-align: left;
+        padding: .5em;
+        max-width: 18em; } }
+
+.post {
+  clear: both;
+  background-color: black;
+  padding: 1.5em;
+  margin: 0 auto 3em;
+  max-width: 40em;
+  box-sizing: border-box; }
+  .post img {
+    display: block;
+    max-width: 100%; }
+  .post p, .post iframe, .post h1, .post h2, .post h3, .post h4, .post h5, .post h6, .post img {
+    margin: .5em 0;
+    line-height: 1.5em; }
+  .post iframe {
+    max-width: 100%; }
+  .post a {
+    color: #2266ff; }
+  .post .title {
+    font-weight: bold; }
+  .post .post-info {
+    display: inline-block;
+    font-size: 14px; }
+    @media screen and (min-width: 560px) {
+      .post .post-info {
+        float: right;
+        max-width: 30%; } }
+  .post .post-header {
+    background-color: #121212;
+    padding: 1em;
+    font-size: 18px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left; }
+    .post .post-header .title {
+      display: inline-block;
+      margin-bottom: .5em; }
+      @media screen and (min-width: 560px) {
+        .post .post-header .title {
+          max-width: 50%; } }
+  .post .post-featured-image {
+    float: left;
+    vertical-align: top;
+    margin: 1em 1em 1em 0; }
+  .post .post-body {
+    text-align: left; }
+  .post .post-footer {
+    clear: both;
+    text-align: center; }
+
+.blog-form {
+  margin: 1em;
+  box-sizing: border-box; }
+
+form {
+  display: inline; }
+
+textarea, input[type='text'] {
+  font-size: 16px;
+  font-family: monospace;
+  line-height: 1em;
+  padding: .5em;
+  box-sizing: border-box; }
+
+.bipedaler-posts a {
+  display: block;
+  margin: .5em 0; }
+
+/*# sourceMappingURL=blog.css.map */

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="/static/images/favicon.jpg?v=001">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Bipedal Approach</title>
+  </head>
+  <body>
+    {{if .LoginURL}}
+    <div>
+      <a href="{{.LoginURL}}">Login</a>
+    </div>
+    {{else}}
+    <div>
+      <a href="{{.LogoutURL}}">Logout</a>
+    </div>
+    {{end}}
+  </body>
+</html>

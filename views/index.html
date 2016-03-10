@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="easymode">
+  <head>
+    <link rel="icon" href="/static/images/favicon.jpg?v=001">
+    <title>The Bipedal Approach</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/home.css">
+    <link href='https://fonts.googleapis.com/css?family=UnifrakturCook:700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="skin">
+      <header>
+        <a href="/" class="link-inactive">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="/login">Login/Logout</a>
+        {{if .IsAdmin}}
+        <a href="/blog/post">New blog post</a>
+        <a href="/media">Manage media</a>
+        {{end}}
+        <a id="easy" href="#">Easy mode</a>
+        <a id="hard" href="#">Hard mode</a>
+      </header>
+    </div>
+    <div class="tapestry" id="tapestry" style="width:{{mult .Tapestry.Width .Scale}}px; height:{{mult .Tapestry.Height .Scale}}px;">
+      {{range .Bandmates}}
+        <div class="bandmate {{.Name}} movable" id="{{.Name}}" style="left:{{mult .Left $.Scale}}px; top:{{mult .Top $.Scale}}px; width:{{mult .Width $.Scale}}px; height:{{mult .Height $.Scale}}px;">
+          <img class="bandmate-img" src="/static/images/{{.Name}}.png" alt="{{.Name}}" width="{{mult .Width $.Scale}}"; height="{{mult .Height $.Scale}}";>
+        </div>
+      {{end}}
+    </div>
+    <!-- <script src="/static/scripts/movable.js"></script> -->
+    <script src="static/scripts/mode.js"></script>
+  </body>
+</html>
