@@ -1,0 +1,23 @@
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body, body * {
+  font: inherit;
+  font-size: inherit
+}
+
+.homepage {
+  height: 100vh;
+  
+  header a {
+    padding: 0 .25em;
+  }
+}
+
+.dtrue {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,8 +1,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #121212;
-  color: white;
+  background-color: white;
+  color: #010;
   font-size: 20px;
   word-wrap: break-word;
 }
@@ -52,7 +52,7 @@ html.easymode {
   }
 }
 p, a, h1, h2, h3, h4, h5, h6, li {
-  transition: left .5s, top .5s;
+  transition: left 1s, top 1s;
 }
 html.hardmode {
   position: relative;

@@ -1,7 +1,6 @@
 package notd
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 
@@ -10,49 +9,26 @@ import (
 	"google.golang.org/appengine/log"
 )
 
+var (
+	homeTpl = template.Must(template.New("index.html").ParseFiles("views/index.html"))
+)
+
 func init() {
 	rtr := mux.NewRouter()
-	rtr.HandleFunc("/", homeHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/login", loginHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/bipedaler/{userID}", bipedalerHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/blog", blogHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/blog/post", writeBlogPostHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/blog/post/{postID}", blogPostHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/blog/post/create", blogPostCreateHandler).
-		Methods("POST")
-
-	rtr.HandleFunc("/blog/post/edit/{postID}", blogPostEditHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/blog/post/update/{postID}", blogPostUpdateHandler).
-		Methods("POST")
-
-	rtr.HandleFunc("/blog/post/delete/{postID}", deleteBlogPostHandler).
-		Methods("POST")
-
-	rtr.HandleFunc("/media", mediaHandler).
-		Methods("GET")
-
-	rtr.HandleFunc("/media/upload", uploadMediaHandler).
-		Methods("POST")
-
-	rtr.HandleFunc("/media/delete/{mediaID}", deleteMediaHandler).
-		Methods("POST")
-
-	rtr.HandleFunc("/media/{mediaID}", serveBlogImageHandler).
-		Methods("GET")
+	rtr.HandleFunc("/", homeHandler).Methods("GET")
+	rtr.HandleFunc("/login", loginHandler).Methods("GET")
+	rtr.HandleFunc("/bipedaler/{userID}", bipedalerHandler).Methods("GET")
+	rtr.HandleFunc("/blog", blogHandler).Methods("GET")
+	rtr.HandleFunc("/blog/post", writeBlogPostHandler).Methods("GET")
+	rtr.HandleFunc("/blog/post/{postID}", blogPostHandler).Methods("GET")
+	rtr.HandleFunc("/blog/post/create", blogPostCreateHandler).Methods("POST")
+	rtr.HandleFunc("/blog/post/edit/{postID}", blogPostEditHandler).Methods("GET")
+	rtr.HandleFunc("/blog/post/update/{postID}", blogPostUpdateHandler).Methods("POST")
+	rtr.HandleFunc("/blog/post/delete/{postID}", deleteBlogPostHandler).Methods("POST")
+	rtr.HandleFunc("/media", mediaHandler).Methods("GET")
+	rtr.HandleFunc("/media/upload", uploadMediaHandler).Methods("POST")
+	rtr.HandleFunc("/media/delete/{mediaID}", deleteMediaHandler).Methods("POST")
+	rtr.HandleFunc("/media/{mediaID}", serveBlogImageHandler).Methods("GET")
 
 	http.Handle("/", rtr)
 }
@@ -72,12 +48,11 @@ type dimensions struct {
 }
 
 type bandmate struct {
-	// dimensions
-	Name   string
-	Left   int
-	Top    int
-	Width  int
-	Height int
+	Name   string `json:"name"`
+	Left   int    `json:"left"`
+	Top    int    `json:"top"`
+	Width  int    `json:"width"`
+	Height int    `json:"height"`
 }
 
 var (
@@ -120,10 +95,6 @@ var (
 	}
 )
 
-func mult(x int, y float64) float64 {
-	return float64(x) * y
-}
-
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
 	var p page
@@ -136,14 +107,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		Width:  2048,
 		Height: 906,
 	}
-	p.Scale = .5
-	funcMap := template.FuncMap{"mult": mult}
-	t, err := template.New("index.html").Funcs(funcMap).ParseFiles("views/index.html")
-	if err != nil {
-		exit(w, fmt.Sprintf("Error parsing template: %s", err.Error()))
-		return
-	}
-	err = t.Execute(w, p)
+	err := homeTpl.Execute(w, p)
 	if err != nil {
 		log.Errorf(c, "%s", err)
 	}
